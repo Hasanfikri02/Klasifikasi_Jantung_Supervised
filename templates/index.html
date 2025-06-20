@@ -1,0 +1,441 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>Sehat Jantungku</title>
+    <meta name="description" content="" />
+    <meta name="author" content="" />
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1, maximum-scale=1"
+    />
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+    />
+    <link
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"
+      rel="stylesheet"
+    />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600&display=swap"
+      rel="stylesheet"
+    />
+  </head>
+
+  <style>
+    body {
+      background: #ffffff;
+      font-family: "Poppins", sans-serif;
+      font-style: normal;
+      color: #222;
+      line-height: 1.7;
+      letter-spacing: 0.2px;
+    }
+    * {
+      scroll-behavior: smooth;
+    }
+
+    .navbar {
+      transition: background-color 0.5s ease;
+    }
+
+    .navbar-dark .nav-link {
+      color: #ffffff;
+      font-size: 12px;
+      font-weight: 500;
+      letter-spacing: 0.6px;
+      text-transform: uppercase;
+      transition: color 0.3s ease-in-out;
+    }
+    .navbar-dark .nav-link:hover {
+      color: #004280;
+    }
+    .navbar-brand:hover {
+      color: #004280 !important;
+    }
+
+    .navbar-brand:hover i {
+      color: #004280;
+    }
+    .header {
+      background: url('{{ url_for("static", filename="images/header.jpg") }}') center center / cover no-repeat
+        fixed;
+      height: 100vh;
+      margin-top: 0px;
+    }
+
+    #gejala {
+      background: #0084ff;
+      color: #ffffff;
+    }
+
+    #gejala .fa {
+      color: #f2545f;
+      font-size: 48px;
+    }
+    .custom-dark-bg {
+      background-color: #0084ff; /* ganti sesuai selera */
+    }
+    .text-primary-custom {
+      color: #0084ff !important;
+    }
+    .text-primary-custom h2,
+    .text-primary-custom h4,
+    .text-primary-custom p {
+      color: #0084ff !important;
+    }
+    .text-custom-blue {
+      color: #0084ff;
+    }
+    .text-custom-blue h4,
+    .text-custom-blue p {
+      color: #0084ff;
+    }
+  </style>
+
+  <body data-spy="scroll" data-offset="50" data-target=".navbar-collapse">
+    <!-- Navbar -->
+    <nav class="navbar navbar-expand-lg navbar-dark bg-transparent fixed-top">
+      <div class="container">
+        <a class="navbar-brand text-white fw-semibold fs-2" href="#">
+          <i class="fa-solid fa-user-doctor me-2"></i> Sehat Jantungku
+        </a>
+
+        <button
+          class="navbar-toggler border-0 pt-2"
+          type="button"
+          data-bs-toggle="collapse"
+          data-bs-target="#navbarNav"
+        >
+          <span class="navbar-toggler-icon"></span>
+        </button>
+
+        <div class="collapse navbar-collapse" id="navbarNav">
+          <ul class="navbar-nav ms-auto">
+            <li class="nav-item">
+              <a class="nav-link" href="#home">Beranda</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="#tentang">Tentang Jantung</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="#tips">Tips & Trick</a>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </nav>
+
+    <!-- Header -->
+    <section
+      id="home"
+      class="header d-flex justify-content-center align-items-center text-center text-white"
+    >
+      <div class="container">
+        <h3 class="fw-light">Kenali Risiko Sejak Dini</h3>
+        <h1 class="display-5 fw-bold">Cek Kesehatan Jantung Anda Sekarang</h1>
+        <a href="{{ url_for('form') }}" class="btn btn-info mt-3"
+          >Cek Sekarang ♥</a
+        >
+      </div>
+    </section>
+
+    <!-- Tentang Kami -->
+    <section id="tentang" class="py-5">
+      <div class="container">
+        <div class="row align-items-center">
+          <div class="col-lg-6 mb-4 mb-lg-0">
+            <h3>Mengapa Kesehatan Jantung Begitu Penting?</h3>
+            <p>
+              Jantung adalah organ vital yang memompa darah ke seluruh tubuh.
+              Gangguan pada jantung dapat memicu berbagai penyakit serius bahkan
+              kematian mendadak. Menjaga kesehatan jantung dengan pola hidup
+              sehat dan deteksi dini sangat penting untuk mencegah risiko
+              berbahaya. Lakukan pemeriksaan rutin dan pahami tanda-tanda
+              gangguan jantung sebelum terlambat.
+            </p>
+          </div>
+
+          <div class="col-lg-6">
+            <img
+              src="{{ url_for('static', filename='images/tentang.jpg') }}"
+              class="img-fluid rounded"
+              alt="Tentang Kesehatan Jantung"
+            />
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Gejala -->
+    <section id="gejala" class="py-5" style="background-color: #0084ff">
+      <div class="container">
+        <!-- Judul -->
+        <div class="text-center mb-5">
+          <h2 class="fw-bold text-white">Gejala Penyakit Jantung</h2>
+        </div>
+
+        <div class="row text-center">
+          <div class="col-lg-4 col-md-6 mb-4">
+            <div class="p-4 border rounded h-100 bg-white text-custom-blue">
+              <i class="fa-solid fa-mask-ventilator fa-3x text-danger mb-3"></i>
+              <h4>Nyeri Dada</h4>
+              <p>
+                Nyeri atau tekanan di dada, terutama saat beraktivitas, bisa
+                menjadi tanda adanya penyempitan pembuluh darah jantung.
+              </p>
+            </div>
+          </div>
+
+          <div class="col-lg-4 col-md-6 mb-4">
+            <div class="p-4 border rounded h-100 bg-white text-custom-blue">
+              <i class="fa-solid fa-lungs-virus fa-3x text-danger mb-3"></i>
+              <h4>Sesak Napas</h4>
+              <p>
+                Merasa sulit bernapas atau napas pendek, terutama saat berbaring
+                atau melakukan aktivitas ringan.
+              </p>
+            </div>
+          </div>
+
+          <div class="col-lg-4 col-md-6 mb-4">
+            <div class="p-4 border rounded h-100 bg-white text-custom-blue">
+              <i class="fa-solid fa-heart-pulse fa-3x text-danger mb-3"></i>
+              <h4>Detak Jantung Tidak Teratur</h4>
+              <p>
+                Jantung berdebar kencang, tidak beraturan, atau terasa ‘lompat’
+                bisa menjadi indikasi gangguan ritme jantung.
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Tips & Trik -->
+    <section id="tips" class="py-5 bg-white">
+      <div class="container">
+        <div class="text-center mb-5">
+          <h2 class="fw-bold">❤️ Tips & Trik Menjaga Jantung Tetap Sehat</h2>
+          <p class="text-muted mx-auto" style="max-width: 700px">
+            Jantung adalah organ vital yang bekerja tanpa henti. Untuk itu,
+            penting bagi kita menjaga kesehatannya secara menyeluruh—baik dari
+            pola makan, kebiasaan harian, hingga aktivitas fisik.
+          </p>
+        </div>
+
+        <!-- Nav tabs -->
+        <ul
+          class="nav nav-tabs justify-content-center mb-4"
+          id="tipsTab"
+          role="tablist"
+        >
+          <li class="nav-item" role="presentation">
+            <button
+              class="nav-link active"
+              id="olahraga-tab"
+              data-bs-toggle="tab"
+              data-bs-target="#olahraga"
+              type="button"
+              role="tab"
+            >
+              🏃‍♂️ Olahraga
+            </button>
+          </li>
+          <li class="nav-item" role="presentation">
+            <button
+              class="nav-link"
+              id="nutrisi-tab"
+              data-bs-toggle="tab"
+              data-bs-target="#nutrisi"
+              type="button"
+              role="tab"
+            >
+              🥗 Nutrisi Baik
+            </button>
+          </li>
+          <li class="nav-item" role="presentation">
+            <button
+              class="nav-link"
+              id="kebiasaan-tab"
+              data-bs-toggle="tab"
+              data-bs-target="#kebiasaan"
+              type="button"
+              role="tab"
+            >
+              💡 Kebiasaan Baik
+            </button>
+          </li>
+        </ul>
+
+        <!-- Tab content -->
+        <div class="tab-content" id="tipsTabContent">
+          <!-- OLahraga -->
+          <div class="tab-pane fade show active" id="olahraga" role="tabpanel">
+            <div class="row gy-4">
+              <div class="col-md-4 text-center">
+                <img
+                  src="{{ url_for('static', filename='images/olahraga1.jpg') }}"
+                  class="img-fluid rounded mb-3"
+                  alt="Jalan Kaki"
+                />
+                <h5 class="fw-semibold">Jalan Kaki Setiap Hari</h5>
+                <p class="text-muted">
+                  Jalan kaki selama 30 menit setiap hari membantu menjaga
+                  tekanan darah tetap stabil, memperlancar sirkulasi darah, dan
+                  meningkatkan stamina.
+                </p>
+              </div>
+              <div class="col-md-4 text-center">
+                <img
+                  src="{{ url_for('static', filename='images/olahraga2.jpg') }}"
+                  class="img-fluid rounded mb-3"
+                  alt="Yoga"
+                />
+                <h5 class="fw-semibold">Senam Ringan atau Yoga</h5>
+                <p class="text-muted">
+                  Latihan pernapasan dan peregangan dari yoga dapat menurunkan
+                  hormon stres, membantu tidur nyenyak, dan membuat jantung
+                  lebih tenang.
+                </p>
+              </div>
+              <div class="col-md-4 text-center">
+                <img
+                  src="{{ url_for('static', filename='images/olahraga3.jpg') }}"
+                  class="img-fluid rounded mb-3"
+                  alt="Kardio"
+                />
+                <h5 class="fw-semibold">Latihan Kardio</h5>
+                <p class="text-muted">
+                  Aktivitas seperti berenang atau berlari meningkatkan kapasitas
+                  paru-paru dan jantung, membantu membakar lemak jahat penyumbat
+                  arteri.
+                </p>
+              </div>
+            </div>
+          </div>
+
+          <!-- Nutrisi -->
+          <div class="tab-pane fade" id="nutrisi" role="tabpanel">
+            <div class="row gy-4">
+              <div class="col-md-4 text-center">
+                <img
+                  src="{{ url_for('static', filename='images/nutrisi1.jpg') }}"
+                  class="img-fluid rounded mb-3"
+                  alt="Sayur"
+                />
+                <h5 class="fw-semibold">Konsumsi Sayur dan Buah</h5>
+                <p class="text-muted">
+                  Kandungan serat, vitamin, dan antioksidan pada buah dan sayur
+                  membantu melindungi dinding pembuluh darah dari kerusakan.
+                </p>
+              </div>
+              <div class="col-md-4 text-center">
+                <img
+                  src="{{ url_for('static', filename='images/nutrisi2.jpg') }}"
+                  class="img-fluid rounded mb-3"
+                  alt="Garam Gula"
+                />
+                <h5 class="fw-semibold">Kurangi Garam & Gula</h5>
+                <p class="text-muted">
+                  Asupan natrium dan gula berlebih dapat mempercepat tekanan
+                  darah tinggi serta meningkatkan risiko diabetes yang berdampak
+                  ke jantung.
+                </p>
+              </div>
+              <div class="col-md-4 text-center">
+                <img
+                  src="{{ url_for('static', filename='images/nutrisi3.jpg') }}"
+                  class="img-fluid rounded mb-3"
+                  alt="Lemak Sehat"
+                />
+                <h5 class="fw-semibold">Pilih Lemak Sehat</h5>
+                <p class="text-muted">
+                  Ganti gorengan dan mentega dengan minyak zaitun, alpukat,
+                  serta kacang-kacangan yang membantu menurunkan kolesterol
+                  jahat (LDL).
+                </p>
+              </div>
+            </div>
+          </div>
+
+          <!-- Kebiasaan Baik -->
+          <div class="tab-pane fade" id="kebiasaan" role="tabpanel">
+            <div class="row gy-4">
+              <div class="col-md-4 text-center">
+                <img
+                  src="{{ url_for('static', filename='images/kebiasaan1.jpg') }}"
+                  class="img-fluid rounded mb-3"
+                  alt="Merokok"
+                />
+                <h5 class="fw-semibold">Berhenti Merokok</h5>
+                <p class="text-muted">
+                  Zat kimia dalam rokok mempercepat pengerasan arteri dan
+                  merusak sel endotel jantung. Menghentikan merokok adalah
+                  langkah terbaik untuk jantung sehat.
+                </p>
+              </div>
+              <div class="col-md-4 text-center">
+                <img
+                  src="{{ url_for('static', filename='images/kebiasaan2.jpg') }}"
+                  class="img-fluid rounded mb-3"
+                  alt="Stres"
+                />
+                <h5 class="fw-semibold">Kelola Stres</h5>
+                <p class="text-muted">
+                  Hindari beban mental berlebih dengan teknik relaksasi seperti
+                  meditasi, journaling, atau olahraga ringan. Kesehatan mental
+                  penting untuk jantung.
+                </p>
+              </div>
+              <div class="col-md-4 text-center">
+                <img
+                  src="{{ url_for('static', filename='images/kebiasaan3.jpg') }}"
+                  class="img-fluid rounded mb-3"
+                  alt="Tidur"
+                />
+                <h5 class="fw-semibold">Cukup Tidur</h5>
+                <p class="text-muted">
+                  Tidur kurang dari 6 jam secara konsisten dapat meningkatkan
+                  tekanan darah dan inflamasi. Idealnya, tidur 7–8 jam per
+                  malam.
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- FOOTER SECTION -->
+    <footer
+      class="custom-dark-bg text-white text-center py-3 mt-5"
+      style="font-family: 'Courier New', Courier, monospace; font-size: 0.95rem"
+    >
+      <div class="container">
+        <p class="mb-1">Muhammad Hasan Fikri | 22670046</p>
+        <p class="mb-0">UNIVERSITAS PGRI SEMARANG</p>
+      </div>
+    </footer>
+
+    <!-- SCRIPT -->
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-parallax/1.1.3/jquery-parallax-min.js"></script>
+
+    <script>
+      window.addEventListener("scroll", function () {
+        const navbar = document.querySelector(".navbar");
+        if (window.scrollY > 50) {
+          navbar.classList.remove("bg-transparent");
+          navbar.classList.add("custom-dark-bg");
+        } else {
+          navbar.classList.add("bg-transparent");
+          navbar.classList.remove("custom-dark-bg");
+        }
+      });
+    </script>
+  </body>
+</html>
